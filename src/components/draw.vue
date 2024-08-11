@@ -1,27 +1,22 @@
 <script setup lang="ts">
 
 
-
-
 </script>
 
 <template>
 <div>
     <form class="tools" >
       <canvas id="myCanvas" ></canvas>
-      <div class="trn error">
-        Your browser does not support canvas or JavaScript is not enabled.
-      </div>
     </form>
 </div>
 </template>
 
 <style>
   #myCanvas{
-    width: 1280px;
-    height: 960px;
-    margin: 0 auto;
-    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* 包含边框 */
+    border: 1px solid #f80000;
   }
 
 </style>

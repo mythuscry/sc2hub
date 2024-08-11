@@ -39,16 +39,16 @@
 <style>
   .container {
     display: grid;
-    border-radius: 2px;
+    width: 80%;
   }
 
   .Shortcut {
     margin: 0 auto;
     display: grid;
     flex-direction: column;
-    width: 230px;
-    height: 223px;
-    margin-top: 300px;
+    width: 65vm;
+    height: 43vh;
+    margin-top: 30%;
     padding: 12px;
     z-index: 1;
     background-color: rgb(37, 42, 49);
@@ -59,7 +59,7 @@
 
   .tnitle {
     font-weight: bold;
-    font: size 12px;
+   font-size: 1.5rem;
     color: rgb(147, 146, 146);
     user-select: none;
     line-height: 16px;
@@ -71,7 +71,7 @@
     background: rgb(37, 42, 49);
     border-radius: 2px;
     gap: 5px;
-
+    font-size: 0.9rem;
     display: grid;
     flex-direction: column;
   }

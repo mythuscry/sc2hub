@@ -33,38 +33,42 @@ import Extend from "./components/extend.vue";
   display: flex;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: rgb(30, 29, 29);
 }
 
 .left-section {
-  width: 17%;
+  width: 13%;
   background-color: rgb(23, 22, 22);
-  overflow: hidden;
+  flex:1;
 }
 
 .middle-section {
   width: 66%;
+  flex:4;
+  overflow: hidden; /* 隐藏超出容器的内容 */
   background-color: greenyellow;
 }
 
 .right-section {
-  width: 17%;
-  background-color: rgb(23, 22, 22);
-  overflow: hidden;
+  width: 13%;
+  background-color: rgb(246, 244, 244);
+  flex:1;
 }
 
 /** auto just zoom***/
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .left-section {
     display: none;
   }
-
-  .middle-section {
-    flex: 1;
+  .right-section {
+   flex: 1;
   }
 
-  @media (max-width: 800px) {
+  .middle-section {
+    flex: 3;
+  }
+
+  @media (max-width:1000px) {
 
     .left-section,
     .right-section {
@@ -72,7 +76,7 @@ import Extend from "./components/extend.vue";
     }
 
     .middle-section {
-      flex: 1;
+      flex: 3;
     }
   }
 }
