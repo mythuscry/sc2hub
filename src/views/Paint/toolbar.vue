@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div></div>
+<div>右边模块</div>
 </template>
 <style>
 </style>

@@ -3,6 +3,9 @@
 </script>
 
 <template>
+<div class="content">
+
+
 <div class="container">
   <div class="Shortcut">
     <div class="tnitle">快捷键</div>
@@ -34,27 +37,36 @@
     </div>
   </div>
 </div>
+</div>
 </template>
 
+
 <style>
-  .container {
+
+.content{
+  display: flex;
+}
+
+.container {
     display: grid;
     width: 80%;
+
   }
 
   .Shortcut {
     margin: 0 auto;
     display: grid;
     flex-direction: column;
-    width: 65vm;
-    height: 43vh;
-    margin-top: 30%;
+    width: 60%;
+    height: 21%;
     padding: 12px;
     z-index: 1;
     background-color: rgb(37, 42, 49);
     gap: 10px;
     border-radius: 6px;
     border: 1px solid rgb(37, 42, 49);
+    justify-self: center; /* 水平居中 */
+    align-self: center; /* 垂直居中 */
   }
 
   .tnitle {
@@ -62,9 +74,9 @@
    font-size: 1.5rem;
     color: rgb(147, 146, 146);
     user-select: none;
-    line-height: 16px;
-    opacity: 0.3;
-    margin-bottom: 10px;
+    line-height: 32px;
+    opacity: 0.6;
+ 
   }
 
   .ng {
