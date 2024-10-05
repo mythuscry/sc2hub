@@ -8,12 +8,16 @@ import Toolbar from "./views/Paint/toolbar.vue";
 </script>
 
 <template>
-  <header></header>
-      <Extend />
-      <Draw />
-      <Toolbar />
+  <div class="content">
+    <Extend />
+    <Draw />
+    <Toolbar />
+  </div>
 </template>
 
 <style scoped>
-
+.content {
+  display: flex;
+  height: 100%;
+}
 </style>
