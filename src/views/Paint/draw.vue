@@ -1,22 +1,16 @@
-<script setup lang="ts">
-// 1. 根据不同的map type会切换不同背景图片到canavas当中
-</script>
-
 <template>
-  <div class="Canvas-Container">
-    <canvas id="myCanvas" width="768px" height="670px"></canvas>
+  <div class="flex-3 w-64 ... bg-gray-500">
+    <canvas class="flex-full bg-red-200 w-4/5 h-4/5"></canvas>
   </div>
 </template>
 
-<style scoped>
-.Canvas-Container {
-  flex: 9;
-  scroll-padding-block-start: green;
-}
+<script setup lang="ts">
+// JavaScript (如果需要)
+</script>
 
-#myCanvas {
-  box-sizing: border-box; /* 包含边框 */
-  justify-content: center;
-  border: 1px solid #f80000;
+<style scoped>
+/* 仅应用于此组件的样式 */
+.flex-3 {
+  flex: 3;
 }
 </style>

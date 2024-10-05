@@ -12,6 +12,7 @@
   "dependencies": {
     "@tauri-apps/api": "^1",
     "pinia": "^2.2.2",
+    "twind": "^0.16.19",
     "vue": "^3.3.4"
   },
   "devDependencies": {

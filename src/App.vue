@@ -4,20 +4,26 @@
 
 import Draw from "./views/Paint/draw.vue";
 import Extend from "./views/Paint/extend.vue";
-import Toolbar from "./views/Paint/toolbar.vue";
 </script>
 
 <template>
-  <div class="content">
+  <div class="flex min-h-screen">
     <Extend />
     <Draw />
-    <Toolbar />
   </div>
 </template>
 
 <style scoped>
-.content {
-  display: flex;
-  height: 100%;
+html,
+body {
+  height: 100%; /* 设置高度为视口的100% */
+  margin: 0; /* 移除默认的边距 */
+  padding: 0; /* 移除默认的填充 */
+}
+
+/* 确保Flex容器撑满整个屏幕 */
+.flex {
+  display: flex; /* 设置为Flex容器 */
+  height: 100%; /* 设置高度为100% */
 }
 </style>
