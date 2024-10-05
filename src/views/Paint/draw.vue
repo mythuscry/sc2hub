@@ -1,32 +1,40 @@
 <template>
   <div
-    class="flex-3 flex flex-direction-row w-100% h-100% min-h-screen bg-orange-500"
+    class="flex-3 flex flex-direction-row w-100% h-100% min-h-screen bg-gray-300"
   >
-    <div class="w-4/5 h-100%">
-      <canvas ref="Canvas" class="w-100% h-3/4"></canvas>
+    <div class="flex w-4/5 h-100% content-center justify-center">
+      <canvas ref="RefCanvas" class="w-4/5 bg-red-100"></canvas>
     </div>
-    <div class="w-1/5 h-100%">2</div>
+    <div class="w-1/5 h-100%"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { path } from "@tauri-apps/api";
-import { ref, onMounted } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
+import image from "../../statics/images/maps/de_dust2.png"; // 假设你的assets目录在src目录下
 
-const canvas = ref(null);
-const ctx = ref(null);
+defineComponent({
+  setup() {
+    const canvasRef = ref<HTMLCanvasElement | null>(null);
 
-onMounted(() => {
-  if (canvas.value) {
-    ctx.value = canvas.value.getContext("2d");
-    const img = new Image();
-    img.onload = () => {
-      // 当图片加载完成后，绘制到canvas上
-      ctx.value.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
+    onMounted(() => {
+      if (canvasRef.value) {
+        const ctx = canvasRef.value.getContext("2d");
+        if (ctx) {
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0); // 将图片绘制到canvas上
+          };
+          img.src = image; // 设置图片源为引入的图片
+        }
+      }
+    });
+
+    return {
+      canvasRef,
     };
-    path = "../../statics/images/maps"; // 操作路径下
-    img.src = path + "cs_italy.png";
-  }
+  },
 });
 </script>
 
