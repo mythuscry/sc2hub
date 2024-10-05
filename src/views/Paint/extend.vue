@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 w-13% bg-gray-600">左侧栏</div>
+  <div class="flex-1 bg-gray-600">左侧栏</div>
 </template>
 
 <script setup lang="ts">

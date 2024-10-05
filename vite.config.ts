@@ -16,6 +16,10 @@ import autoprefixer from 'autoprefixer';
 export default defineConfig(async () => ({
     plugins: [vue()],
 
+    build: {
+        sourcemap: true
+    },
+
     // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
     //
     // 1. prevent vite from obscuring rust errors
@@ -31,11 +35,11 @@ export default defineConfig(async () => ({
     },
     css: {
         postcss: {
-          plugins: [
-            tailwindcss,
-            autoprefixer,
-          ],
+            plugins: [
+                tailwindcss,
+                autoprefixer,
+            ],
         },
-      },
+    },
 
 }));

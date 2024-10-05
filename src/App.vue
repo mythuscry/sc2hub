@@ -7,7 +7,7 @@ import Extend from "./views/Paint/extend.vue";
 </script>
 
 <template>
-  <div class="flex min-h-screen">
+  <div class="flex flex-grow flex-direction-row min-h-screen">
     <Extend />
     <Draw />
   </div>
