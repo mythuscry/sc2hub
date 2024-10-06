@@ -3,39 +3,47 @@
     class="flex-3 flex flex-direction-row w-100% h-100% min-h-screen bg-gray-300"
   >
     <div class="flex w-4/5 h-100% content-center justify-center">
-      <canvas ref="RefCanvas" class="w-4/5 bg-red-100"></canvas>
+      <canvas ref="canvas" class="w-4/5 bg-red-100"></canvas>
     </div>
     <div class="w-1/5 h-100%"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { path } from "@tauri-apps/api";
-import { defineComponent, onMounted, ref } from "vue";
+
 import image from "../../statics/images/maps/de_dust2.png"; // 假设你的assets目录在src目录下
 
-defineComponent({
-  setup() {
-    const canvasRef = ref<HTMLCanvasElement | null>(null);
+import { onMounted, ref, Ref } from 'vue';
 
-    onMounted(() => {
-      if (canvasRef.value) {
-        const ctx = canvasRef.value.getContext("2d");
-        if (ctx) {
-          const img = new Image();
-          img.onload = () => {
-            ctx.drawImage(img, 0, 0); // 将图片绘制到canvas上
-          };
-          img.src = image; // 设置图片源为引入的图片
-        }
-      }
-    });
+const canvas: Ref<HTMLCanvasElement | null> = ref(null);
 
-    return {
-      canvasRef,
-    };
-  },
+onMounted(() => {
+  if (canvas.value) {
+    const ctx = canvas.value.getContext('2d');
+    if (ctx) {
+      drawCanvas(ctx); // 绘制图形
+    }
+  }
 });
+
+function drawCanvas(ctx: CanvasRenderingContext2D): void {
+  // 清除整个 canvas
+  ctx.clearRect(0, 0, canvas.value!.width, canvas.value!.height);
+
+  // 绘制背景颜色
+  ctx.fillStyle = '#f0f0f0';
+  ctx.fillRect(0, 0, canvas.value!.width, canvas.value!.height);
+
+  // 绘制一个蓝色矩形
+  ctx.fillStyle = 'blue';
+  ctx.fillRect(50, 50, 100, 100);
+
+
+
+
+}
+
+
 </script>
 
 <style scoped>
