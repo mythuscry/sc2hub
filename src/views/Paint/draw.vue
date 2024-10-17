@@ -1,14 +1,15 @@
 <template>
-  <div class="flex-3 flex flex-direction-row w-full h-full min-h-screen bg-white">
+  <div
+    class="flex-3 flex flex-direction-row w-full h-full min-h-screen bg-white"
+  >
     <div class="flex w-4/5 h-full content-center justify-center">
-      <canvas ref="canvasRef" class=" bg-black "></canvas>
+      <canvas ref="canvasRef" class="bg-black"></canvas>
     </div>
     <div class="w-1/5 h-100%"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 import { onMounted, ref } from "vue";
 import MapPath from "../../statics/images/maps/de_dust2.png";
 // 获取画布对象
@@ -36,8 +37,8 @@ onMounted(() => {
   canvas.width = window.innerHeight;
   canvas.height = window.innerWidth;
 
-  canvas.style.width = '1024px';
-  canvas.style.height = '1024px';
+  //   canvas.style.width = "1024px";
+  //   canvas.style.height = "1024px";
 
   // 等待图片加载完
   img.onload = () => {
@@ -46,37 +47,40 @@ onMounted(() => {
 
     drawImageOnCanvas(ctx, img);
   };
-});
 
+  canvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    console.log("滚轮滑动");
+
+    var scale = 1.05; // 缩放比例因子
+    if (e.deltaY > 0) {
+      // 放大
+      scale *= 1.05;
+    } else {
+      // 缩小
+      scale /= 1.05;
+    }
+    // 更新Canvas的缩放状态
+    ctx.scale(scale, scale);
+    drawImageOnCanvas(ctx, img);
+  });
+});
 
 function drawImageOnCanvas(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement
 ) {
   const canvas = ctx.canvas;
-  ctx.scale(dpr, dpr);
+
   // 根据图片调整 canvas 的大小
   canvas.width = img.naturalWidth;
   canvas.height = img.naturalHeight;
-
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // 绘制图片
   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-
-  console.log("img w" + img.naturalWidth);
-  console.log("img h" + img.naturalHeight);
-  console.log("canvas w" + canvas.width);
-  console.log("canvas h" + canvas.height);
-
 }
-
-
-
-
-
 </script>
 
 <style scoped>
@@ -88,6 +92,4 @@ function drawImageOnCanvas(
 .flex-4 {
   flex: 4;
 }
-
-
 </style>

@@ -15,12 +15,9 @@ import Extend from "./views/Paint/extend.vue";
 
 <style scoped>
 html,
-body {
-  height: 100%; /* 设置高度为视口的100% */
-  margin: 0; /* 移除默认的边距 */
-  padding: 0; /* 移除默认的填充 */
+::v-deep(body) {
+  overflow: hidden;
 }
-
 /* 确保Flex容器撑满整个屏幕 */
 .flex {
   display: flex; /* 设置为Flex容器 */

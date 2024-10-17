@@ -12,6 +12,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import { tw } from 'twind';
 import './index.css';
+import './assets/global.css';
 
 // 启动 Twind CSS
 tw();
